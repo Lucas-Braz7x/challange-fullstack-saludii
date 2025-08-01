@@ -14,11 +14,60 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Receita {
+  id           String    @id @default(cuid())
+  titulo       String
+  ingredientes String
+  modoPreparo  String    @map("modo_preparo")
+  tempoPreparo Int       @map("tempo_preparo")
+  porcoes      Int
+  notaPessoal  String?   @map("nota_pessoal")
+  slug         String    @unique
+  curtidas     Int       @default(0)
+  createdAt    DateTime? @default(now()) @map("created_at")
+  updatedAt    DateTime? @updatedAt @map("updated_at")
+
+  // Relacionamentos
+  categorias CategoriaReceita[]
+  tags       TagReceita[]
+
+  @@map("receita")
+}
+
+model Categoria {
+  id       String             @id @default(cuid())
+  nome     String
+  receitas CategoriaReceita[]
+
+  @@map("categoria")
+}
+
+model Tag {
+  id       String       @id @default(cuid())
+  nome     String
+  receitas TagReceita[]
+
+  @@map("tag")
+}
+
+model CategoriaReceita {
+  receitaId   String @map("receita_id")
+  categoriaId String @map("categoria_id")
+
+  receita   Receita   @relation(fields: [receitaId], references: [id])
+  categoria Categoria @relation(fields: [categoriaId], references: [id])
+
+  @@id([receitaId, categoriaId])
+  @@map("categoria_receita")
+}
+
+model TagReceita {
+  receitaId String @map("receita_id")
+  tagId     String @map("tag_id")
+
+  receita Receita @relation(fields: [receitaId], references: [id])
+  tag     Tag     @relation(fields: [tagId], references: [id])
+
+  @@id([receitaId, tagId])
+  @@map("tag_receita")
 }

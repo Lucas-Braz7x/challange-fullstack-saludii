@@ -6,6 +6,11 @@
       "web"
     ]
   },
+
+  "scripts": {
+    "socket": "ts-node api/src/socket.ts",
+    "dev": "yarn rw dev"
+  },
   "devDependencies": {
     "@redwoodjs/core": "8.8.0",
     "@redwoodjs/project-config": "8.8.0"

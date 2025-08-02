@@ -8,7 +8,12 @@ export class RecipeRepository extends BaseRepository<Prisma.ReceitaDelegate> {
   }
 
   async findCategories(id: string) {
-    return this.repository.findUnique({ where: { id } }).categorias()
+    const receita = await this.repository.findFirst({
+      where: { id },
+      include: { categorias: true },
+    })
+
+    return receita?.categorias ?? []
   }
 
   async findTags(id: string) {

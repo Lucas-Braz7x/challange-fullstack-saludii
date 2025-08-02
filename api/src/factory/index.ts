@@ -1,3 +1,5 @@
 export * from './category-factory'
 export * from './recipe-factory'
 export * from './tag-factory'
+export * from './category-recipe-factory'
+export * from './tag-recipe-factory'

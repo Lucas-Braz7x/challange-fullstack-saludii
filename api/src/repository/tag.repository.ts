@@ -1,7 +1,5 @@
 import { Prisma } from '@prisma/client'
 
-import { db } from 'src/lib/db'
-
 import { BaseRepository } from './dto/base-repository'
 
 export class TagRepository extends BaseRepository<Prisma.TagDelegate> {
@@ -10,6 +8,6 @@ export class TagRepository extends BaseRepository<Prisma.TagDelegate> {
   }
 
   async findRecipe(id: string) {
-    return db.tag.findUnique({ where: { id } }).receitas()
+    return this.repository.findUnique({ where: { id } }).receitas()
   }
 }

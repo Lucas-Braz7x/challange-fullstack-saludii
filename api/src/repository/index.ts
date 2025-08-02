@@ -1,3 +1,5 @@
 export * from './category.repository'
 export * from './recipe.repository'
 export * from './tag.repository'
+export * from './tag-recipe.repository'
+export * from './category-recipe.repository'

@@ -8,7 +8,7 @@ export const schema = gql`
     porcoes: Int!
     notaPessoal: String
     slug: String!
-    curtidas: Int!
+    curtidas: Int
     createdAt: DateTime
     updatedAt: DateTime
     categorias: [CategoriaReceita]!
@@ -26,10 +26,12 @@ export const schema = gql`
     receitaId: String!
     tagId: String!
     receita: Receita!
+    tag: Tag!
   }
 
   type Query {
     receitas: [Receita!]! @requireAuth
+    receitas(query: String): [Receita!]!
     receita(id: String!): Receita @requireAuth
   }
 
@@ -41,7 +43,9 @@ export const schema = gql`
     porcoes: Int!
     notaPessoal: String
     slug: String!
-    curtidas: Int!
+    curtidas: Int
+    categorias: [String]
+    tags: [String]
   }
 
   input UpdateReceitaInput {

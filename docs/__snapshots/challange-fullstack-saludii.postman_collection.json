@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "454a6ef8-5017-4913-838a-934f36930471",
+		"name": "challange-fullstack-saludii",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18642839"
+	},
+	"item": [
+		{
+			"name": "recipe",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query receitas {\r\n    receitas{\r\n         id\r\n        titulo\r\n        ingredientes\r\n        modoPreparo\r\n        tempoPreparo\r\n        porcoes\r\n        notaPessoal\r\n        slug\r\n        curtidas\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation createReceita ($input: CreateReceitaInput!) {\r\n    createReceita (input: $input) {\r\n        id\r\n        titulo\r\n        ingredientes\r\n        modoPreparo\r\n        tempoPreparo\r\n        porcoes\r\n        notaPessoal\r\n        slug\r\n        curtidas\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}",
+								"variables": "{\r\n    \"input\": {\r\n        \"titulo\": \"Torta de maça\",\r\n        \"ingredientes\": \"<p> Testeeeeeeeee</p>\",\r\n        \"modoPreparo\": \"Teste\",\r\n        \"tempoPreparo\": 50,\r\n        \"porcoes\": 15,\r\n        \"notaPessoal\": \"torta-maca\"\r\n    }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findMany",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query receitas {\r\n    receitas{\r\n         id\r\n        titulo\r\n        ingredientes\r\n        modoPreparo\r\n        tempoPreparo\r\n        porcoes\r\n        notaPessoal\r\n        slug\r\n        curtidas\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query receita($id: String!)  {\r\n    receita (id: $id){\r\n         id\r\n        titulo\r\n        ingredientes\r\n        modoPreparo\r\n        tempoPreparo\r\n        porcoes\r\n        notaPessoal\r\n        slug\r\n        curtidas\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}",
+								"variables": "{\r\n    \"id\": \"cmdu9r1dx000212qow06oqh4r\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query receita($id: String!)  {\r\n    receita (id: $id){\r\n         id\r\n        titulo\r\n        ingredientes\r\n        modoPreparo\r\n        tempoPreparo\r\n        porcoes\r\n        notaPessoal\r\n        slug\r\n        curtidas\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}",
+								"variables": "{\r\n    \"id\": \"cmdu9r1dx000212qow06oqh4r\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

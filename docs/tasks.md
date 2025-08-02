@@ -10,8 +10,9 @@
 - [x] Uma receita deve conter obrigatoriamente: título, ingredientes, modo de preparo, tempo de preparo, número de porções e um slug único.
 - [ ] O conteúdo dos campos "ingredientes" e "modo de preparo" deve permitir formatação em markdown (ou HTML via tiptap).
 - [ ] Cada nova receita deve ser adicionada ao feed em tempo real para todos os usuários conectados.
-- [] A receita pode estar vinculada a uma ou mais categorias.
-- [] A receita pode conter uma ou mais tags, permitindo múltiplos filtros por palavras-chave.
+- [x] A receita pode estar vinculada a uma ou mais categorias.
+- [x] A receita pode conter uma ou mais tags,
+- [x] A receita de permitir múltiplos filtros por palavras-chave.
 - [x] O campo "nota pessoal" é opcional e pode ser utilizado para dicas ou observações do autor.
 
 ### ❤️ Curtidas
@@ -22,7 +23,7 @@
 
 ### 🔍 Pesquisa e Filtragem
 
-- [ ] Os usuários devem poder pesquisar receitas por título, ingredientes, ou tags.
+- [x] Os usuários devem poder pesquisar receitas por título, ingredientes, ou tags.
 - [ ] Os usuários devem poder filtrar o feed por categoria e/ou por tags.
 
 ### 🔗 Compartilhamento
@@ -36,8 +37,8 @@
 
 ### ⚙️ Arquitetura e Tecnologias
 
-- [ ] A aplicação deve ser construída utilizando RedwoodJS com Prisma, GraphQL e React.
-- [ ] O banco de dados utilizado deve ser SQLite.
+- [x] A aplicação deve ser construída utilizando RedwoodJS com Prisma, GraphQL e React.
+- [x] O banco de dados utilizado deve ser SQLite.
 - [ ] A interface deve utilizar o Material UI para componentes visuais.
 - [ ] A comunicação em tempo real deve ser implementada usando Socket.IO ou Server-Sent Events (SSE).
 - [ ] A aplicação deve permitir visualização responsiva em desktop e dispositivos móveis.
@@ -53,6 +54,6 @@
 
 - [ ] O feed de receitas deve carregar rapidamente e refletir atualizações em tempo real com latência mínima.
 - [ ] A aplicação não deve utilizar o sistema de `cells` do RedwoodJS.
-- [ ] As consultas GraphQL devem utilizar `DataLoader` do Prisma para evitar problemas de N+1.
+- [x] As consultas GraphQL devem utilizar `DataLoader` do Prisma para evitar problemas de N+1.
 - [ ] O código da aplicação deve seguir os princípios de clean code: modular, legível e com boa separação de responsabilidades.
 - [ ] Os índices no banco devem ser bem definidos, especialmente nos campos utilizados em filtros e buscas.

@@ -23,7 +23,7 @@ model Receita {
   porcoes      Int
   notaPessoal  String?   @map("nota_pessoal")
   slug         String    @unique
-  curtidas     Int       @default(0)
+  curtidas     Int?      @default(0)
   createdAt    DateTime? @default(now()) @map("created_at")
   updatedAt    DateTime? @updatedAt @map("updated_at")
 
@@ -36,7 +36,7 @@ model Receita {
 
 model Categoria {
   id       String             @id @default(cuid())
-  nome     String
+  nome     String             @unique
   receitas CategoriaReceita[]
 
   @@map("categoria")
@@ -44,7 +44,7 @@ model Categoria {
 
 model Tag {
   id       String       @id @default(cuid())
-  nome     String
+  nome     String       @unique
   receitas TagReceita[]
 
   @@map("tag")

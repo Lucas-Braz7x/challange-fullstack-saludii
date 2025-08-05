@@ -17,14 +17,14 @@
 
 ### ❤️ Curtidas
 
-- [ ] Qualquer usuário pode curtir qualquer receita, sem necessidade de login.
-- [ ] Cada clique no botão de curtir incrementa o contador de curtidas da receita em tempo real.
-- [ ] O total de curtidas deve estar visível no card da receita e ser atualizado em tempo real no feed.
+- [x] Qualquer usuário pode curtir qualquer receita, sem necessidade de login.
+- [x] Cada clique no botão de curtir incrementa o contador de curtidas da receita em tempo real.
+- [x] O total de curtidas deve estar visível no card da receita e ser atualizado em tempo real no feed.
 
 ### 🔍 Pesquisa e Filtragem
 
 - [x] Os usuários devem poder pesquisar receitas por título, ingredientes, ou tags.
-- [ ] Os usuários devem poder filtrar o feed por categoria e/ou por tags.
+- [x] Os usuários devem poder filtrar o feed por categoria e/ou por tags.
 
 ### 🔗 Compartilhamento
 
@@ -39,8 +39,8 @@
 
 - [x] A aplicação deve ser construída utilizando RedwoodJS com Prisma, GraphQL e React.
 - [x] O banco de dados utilizado deve ser SQLite.
-- [ ] A interface deve utilizar o Material UI para componentes visuais.
-- [ ] A comunicação em tempo real deve ser implementada usando Socket.IO ou Server-Sent Events (SSE).
+- [x] A interface deve utilizar o Material UI para componentes visuais.
+- [x] A comunicação em tempo real deve ser implementada usando Socket.IO ou Server-Sent Events (SSE).
 - [ ] A aplicação deve permitir visualização responsiva em desktop e dispositivos móveis.
 
 ### 🎯 Usabilidade e Design

@@ -5,11 +5,13 @@ import type {
   DeleteReceitaMutationVariables,
   FindReceitas,
   FindReceitasVariables,
+  UpdateReceitaMutation,
+  UpdateReceitaMutationVariables,
 } from 'types/graphql'
 
 import type { TypedDocumentNode } from '@redwoodjs/web'
 
-export const LIST_QUERY: TypedDocumentNode<
+export const LIST_RECIPES_QUERY: TypedDocumentNode<
   FindReceitas,
   FindReceitasVariables
 > = gql`
@@ -38,6 +40,27 @@ export const LIST_QUERY: TypedDocumentNode<
           id
         }
       }
+    }
+  }
+`
+
+export const UPDATE_RECIPE_MUTATION: TypedDocumentNode<
+  UpdateReceitaMutation,
+  UpdateReceitaMutationVariables
+> = gql`
+  mutation UpdateReceitaMutation($id: String!, $input: UpdateReceitaInput!) {
+    updateReceita(id: $id, input: $input) {
+      id
+      titulo
+      ingredientes
+      modoPreparo
+      tempoPreparo
+      porcoes
+      notaPessoal
+      slug
+      curtidas
+      createdAt
+      updatedAt
     }
   }
 `

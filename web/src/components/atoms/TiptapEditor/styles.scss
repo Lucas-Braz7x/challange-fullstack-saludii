@@ -1,0 +1,32 @@
+$error-color: #ff0000;
+
+.editor-content {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 8px;
+  height: 220px;
+  box-shadow: none;
+  position: relative;
+  outline: none;
+  overflow-y: scroll;
+
+  &>div{
+    height: 220px;
+    outline: none;
+    box-shadow: transparent;
+    border-color: transparent;
+  }
+}
+
+.editor-label{
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.editor-error {
+  border-color: $error-color;
+  color: $error-color;
+}
+

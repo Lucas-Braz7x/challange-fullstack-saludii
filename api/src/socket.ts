@@ -1,5 +1,5 @@
-import { NotFoundError } from './../../error/not-found'
 /* eslint-disable @typescript-eslint/no-explicit-any */
+//import { NotFoundError } from './../../error/not-found'
 import { db } from './lib/db'
 
 const { createServer } = require('http')
@@ -8,7 +8,7 @@ const { Server } = require('socket.io')
 
 const httpServer = createServer()
 
-const io = new Server(httpServer, {
+export const io = new Server(httpServer, {
   cors: {
     origin: '*',
   },
@@ -25,7 +25,7 @@ io.on('connection', (socket: any) => {
     })
 
     if (!recipe) {
-      throw new NotFoundError()
+      throw new Error()
     }
 
     const recipeUpdated = await db.receita.update({

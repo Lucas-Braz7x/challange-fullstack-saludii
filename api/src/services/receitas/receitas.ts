@@ -6,6 +6,7 @@ import type {
 } from 'types/graphql'
 
 import { recipeFactory } from 'src/factory/recipe-factory'
+import { io } from 'src/socket'
 
 const recipeRepository = recipeFactory()
 
@@ -93,6 +94,8 @@ export const createReceita: MutationResolvers['createReceita'] = async ({
         },
       },
     })
+
+    io.emit('new-recipe', result)
   } catch (error) {
     console.error(error)
     throw new Error(error)

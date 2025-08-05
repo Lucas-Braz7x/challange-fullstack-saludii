@@ -1,1 +1,1 @@
-export * from './ReceitaForm'
+export * from './RecipeForm'

@@ -1,4 +1,4 @@
-$error-color: #ff0000;
+$error-color: #d32f2f;
 
 .editor-content {
   box-sizing: border-box;
@@ -23,6 +23,16 @@ $error-color: #ff0000;
   font-size: 14px;
   color: #666;
   margin-bottom: 4px;
+  font: 'Roboto', sans-serif;
+}
+
+.error-message {
+  color: $error-color;
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  margin-top: 4px;
+  margin-left: 14px;
+  margin-right: 14px;
 }
 
 .editor-error {

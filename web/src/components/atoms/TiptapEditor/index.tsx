@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react'
 
+import { Typography as TypographyMUI } from '@mui/material'
 import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import { useEditor, EditorContent } from '@tiptap/react'
@@ -47,7 +48,7 @@ export const TiptapEditor = ({
         htmlFor={id}
         className={`editor-label ${error ? 'editor-error' : ''}`}
       >
-        {label}
+        <TypographyMUI variant="body1">{label}</TypographyMUI>
       </label>
       <EditorContent
         className={`editor-content ${error ? 'editor-error' : ''}`}
@@ -55,11 +56,7 @@ export const TiptapEditor = ({
         id={id}
         required
       />
-      {error && (
-        <p className="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained Mui-required css-er619e-MuiFormHelperText-root">
-          {helperText}
-        </p>
-      )}
+      {error && <p className="error-message">{helperText}</p>}
     </div>
   )
 }

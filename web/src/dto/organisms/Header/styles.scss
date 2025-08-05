@@ -1,0 +1,17 @@
+
+
+.menu-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  height: 100px;
+}
+
+.menu-options{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  text-decoration: none;
+  list-style: none;
+}

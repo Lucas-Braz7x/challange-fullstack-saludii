@@ -25,7 +25,7 @@ export const receitas: QueryResolvers['receitas'] = ({ query }) => {
             : undefined,
         },
         {
-          tags: query?.tags.length
+          tags: query?.tags?.length
             ? {
                 some: {
                   tag: {
@@ -38,7 +38,7 @@ export const receitas: QueryResolvers['receitas'] = ({ query }) => {
             : undefined,
         },
         {
-          categorias: query?.categorias.length
+          categorias: query?.categorias?.length
             ? {
                 some: {
                   categoria: {

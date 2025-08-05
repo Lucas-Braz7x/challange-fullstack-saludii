@@ -5,9 +5,8 @@ import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 
-import './index.css'
+import './index.scss'
 import './scaffold.css'
-
 
 interface AppProps {
   children?: ReactNode

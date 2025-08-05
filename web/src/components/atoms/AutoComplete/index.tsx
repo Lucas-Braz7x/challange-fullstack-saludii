@@ -11,6 +11,8 @@ interface AutocompleteProps<T> {
   label: string
   onChange: (value: any) => void
   value: any
+  helperText?: string | string[]
+  error?: boolean
 }
 
 export const AutocompleteInput = <T,>({
@@ -20,6 +22,8 @@ export const AutocompleteInput = <T,>({
   label,
   onChange,
   value,
+  helperText,
+  error,
 }: AutocompleteProps<T>) => {
   return (
     <Autocomplete
@@ -31,9 +35,12 @@ export const AutocompleteInput = <T,>({
         setState(value)
       }}
       options={options}
-      sx={{ width: 300 }}
+      size="small"
       renderInput={(params) => (
         <TextField
+          size="small"
+          error={error}
+          helperText={helperText}
           onChange={onChange}
           {...params}
           label={label}

@@ -29,9 +29,16 @@ export const schema = gql`
     tag: Tag!
   }
 
+  input SearchReceitaInput {
+    titulo: String
+    ingredientes: String
+    categorias: [String]
+    tags: [String]
+  }
+
   type Query {
     receitas: [Receita!]! @requireAuth
-    receitas(query: String): [Receita!]!
+    receitas(query: SearchReceitaInput): [Receita!]!
     receita(id: String!): Receita @requireAuth
   }
 

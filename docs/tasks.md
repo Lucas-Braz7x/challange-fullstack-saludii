@@ -9,7 +9,7 @@
 
 - [x] Uma receita deve conter obrigatoriamente: título, ingredientes, modo de preparo, tempo de preparo, número de porções e um slug único.
 - [ ] O conteúdo dos campos "ingredientes" e "modo de preparo" deve permitir formatação em markdown (ou HTML via tiptap).
-- [ ] Cada nova receita deve ser adicionada ao feed em tempo real para todos os usuários conectados.
+- [x] Cada nova receita deve ser adicionada ao feed em tempo real para todos os usuários conectados.
 - [x] A receita pode estar vinculada a uma ou mais categorias.
 - [x] A receita pode conter uma ou mais tags,
 - [x] A receita de permitir múltiplos filtros por palavras-chave.

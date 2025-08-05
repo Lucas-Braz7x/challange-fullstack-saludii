@@ -19,12 +19,16 @@
     "@redwoodjs/forms": "8.8.0",
     "@redwoodjs/router": "8.8.0",
     "@redwoodjs/web": "8.8.0",
+    "@tiptap/extension-highlight": "^3.0.9",
+    "@tiptap/extension-typography": "^3.0.9",
     "@tiptap/react": "^3.0.9",
+    "@tiptap/starter-kit": "^3.0.9",
     "formik": "^2.4.6",
     "humanize-string": "2.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "socket.io-client": "^4.8.1",
+    "tiptap-markdown": "^0.8.10",
     "yup": "^1.7.0",
     "zod": "^4.0.14",
     "zustand": "^5.0.7"
@@ -32,6 +36,7 @@
   "devDependencies": {
     "@redwoodjs/vite": "8.8.0",
     "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19"
+    "@types/react-dom": "^18.2.19",
+    "sass": "^1.89.2"
   }
 }

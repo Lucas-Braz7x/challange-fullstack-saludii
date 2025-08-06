@@ -31,6 +31,8 @@ model Receita {
   categorias CategoriaReceita[]
   tags       TagReceita[]
 
+  @@index([titulo])
+  @@index([ingredientes])
   @@map("receita")
 }
 
@@ -39,6 +41,7 @@ model Categoria {
   nome     String             @unique
   receitas CategoriaReceita[]
 
+  @@index([nome])
   @@map("categoria")
 }
 
@@ -47,6 +50,7 @@ model Tag {
   nome     String       @unique
   receitas TagReceita[]
 
+  @@index([nome])
   @@map("tag")
 }
 

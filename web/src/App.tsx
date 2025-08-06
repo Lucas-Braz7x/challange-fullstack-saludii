@@ -16,6 +16,12 @@ interface AppProps {
 const App = ({ children }: AppProps) => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+      <img
+        src="/background.png"
+        loading="lazy"
+        style={{ display: 'none' }}
+        alt=""
+      />
       <RedwoodApolloProvider>{children}</RedwoodApolloProvider>
       <Toaster toastOptions={{ className: 'rw-toast', duration: 3000 }} />
     </RedwoodProvider>

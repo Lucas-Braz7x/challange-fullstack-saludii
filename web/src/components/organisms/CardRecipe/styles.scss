@@ -1,0 +1,65 @@
+$card-background: #fef7ea;
+$card-indices: #7c6f64;
+$card-footer: #a98467;
+$card-text-color:  #ffffff;
+
+.card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 345px;
+  width: 100%;
+  height: 200px;
+
+}
+
+.card-title{
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: $card-text-color;
+}
+
+.card-text {
+  color: $card-text-color;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-indices {
+  display: flex;
+  justify-content: start;
+  background: $card-background;
+  & > Button{
+    color: $card-indices !important;
+
+  }
+}
+
+.card-footer{
+  display: flex;
+  justify-content: center;
+  background: $card-background;
+
+  & > a,
+  & > Button{
+    color: $card-footer;
+  }
+}
+
+
+.card-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/background-card.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(75%);
+  pointer-events: none;
+  border-radius: 0;
+
+}

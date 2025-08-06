@@ -9,11 +9,9 @@ import { FindReceitas, FindReceitasVariables, Receita } from 'types/graphql'
 import { useQuery } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { MainContainer } from 'src/components/atoms/MainContainer'
 import { CardRecipe } from 'src/components/organisms/CardRecipe'
 import { CardSkeleton } from 'src/components/organisms/CardRecipe/components/CardSkeleton'
 import { FilterForm } from 'src/components/organisms/FilterForm'
-import { Header } from 'src/components/organisms/Header'
 import { CreateRecipeModal } from 'src/components/organisms/Modal'
 import { LIST_RECIPES_QUERY } from 'src/requests'
 
@@ -46,8 +44,7 @@ export const HomePageTemplate = () => {
   }, [socket, updateQuery])
 
   return (
-    <MainContainer>
-      <Header />
+    <>
       <div className="img-home">Explore receitas deliciosas</div>
 
       <FilterForm setDataRecipes={setDataRecipes} updateQuery={updateQuery} />
@@ -77,6 +74,6 @@ export const HomePageTemplate = () => {
               ))}
         </Grid>
       </Box>
-    </MainContainer>
+    </>
   )
 }

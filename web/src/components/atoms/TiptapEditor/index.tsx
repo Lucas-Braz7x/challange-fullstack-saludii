@@ -19,7 +19,7 @@ export const TiptapEditor = ({
   helperText,
   error,
 }: TiptapEditorProps) => {
-  const editor = useEditor({
+  const editor: any = useEditor({
     extensions: [
       StarterKit,
       Highlight,
@@ -29,7 +29,6 @@ export const TiptapEditor = ({
         transformPastedText: true,
       }),
     ],
-    content: value,
     onUpdate({ editor }: any) {
       const markdown = editor.storage.markdown.getMarkdown()
       onChange(markdown)
@@ -37,7 +36,9 @@ export const TiptapEditor = ({
   })
 
   useEffect(() => {
-    if (editor && value !== editor.getHTML()) {
+    const currentMarkdown = editor.storage.markdown.getMarkdown()
+
+    if (value !== currentMarkdown) {
       editor.commands.setContent(value)
     }
   }, [value, editor])

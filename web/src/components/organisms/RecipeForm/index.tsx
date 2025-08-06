@@ -81,7 +81,6 @@ export const RecipeForm = (props: ReceitaFormProps) => {
                 value={values.titulo}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={touched.titulo && Boolean(errors.titulo)}
                 helperText={touched.titulo && (errors.titulo as string)}
               />
@@ -95,7 +94,6 @@ export const RecipeForm = (props: ReceitaFormProps) => {
                 value={values.tempoPreparo}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={touched.tempoPreparo && Boolean(errors.tempoPreparo)}
                 helperText={
                   touched.tempoPreparo && (errors.tempoPreparo as string)
@@ -111,7 +109,6 @@ export const RecipeForm = (props: ReceitaFormProps) => {
                 value={values.porcoes}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={touched.porcoes && Boolean(errors.porcoes)}
                 helperText={touched.porcoes && (errors.porcoes as string)}
               />
@@ -124,7 +121,6 @@ export const RecipeForm = (props: ReceitaFormProps) => {
                 value={values.notaPessoal}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={touched.notaPessoal && Boolean(errors.notaPessoal)}
                 helperText={
                   touched.notaPessoal && (errors.notaPessoal as string)
@@ -139,7 +135,6 @@ export const RecipeForm = (props: ReceitaFormProps) => {
                 value={values.slug}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={touched.slug && Boolean(errors.slug)}
                 helperText={touched.slug && (errors.slug as string)}
               />

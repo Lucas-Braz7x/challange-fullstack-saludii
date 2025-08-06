@@ -25,8 +25,10 @@ export const HomePageTemplate = () => {
       setDataRecipes(receitas as Receita[])
       toast.success('Receitas carregadas com sucesso!')
     },
-    onError() {
-      toast.success('Error ao carregar Receitas!')
+    onError(error) {
+      console.log({ error })
+
+      toast.error('Error ao carregar Receitas!')
     },
   })
 

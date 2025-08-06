@@ -12,6 +12,9 @@ const recipeRepository = recipeFactory()
 
 export const receitas: QueryResolvers['receitas'] = ({ query }) => {
   return recipeRepository.findMany({
+    orderBy: {
+      createdAt: 'desc',
+    },
     where: {
       AND: [
         {

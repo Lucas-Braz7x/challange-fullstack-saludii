@@ -9,7 +9,10 @@
 
   "scripts": {
     "socket": "ts-node api/src/socket.ts",
-    "dev": "yarn rw dev"
+    "dev": "yarn rw dev",
+    "postinstall": "yarn rw prisma generate && yarn rw prisma migrate deploy",
+    "build": "yarn rw build && yarn postinstall"
+
   },
   "devDependencies": {
     "@redwoodjs/core": "8.8.0",

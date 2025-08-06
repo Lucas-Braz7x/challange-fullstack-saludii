@@ -5,6 +5,8 @@ import type {
   ReceitaRelationResolvers,
 } from 'types/graphql'
 
+import { ValidationError } from '@redwoodjs/graphql-server'
+
 import { recipeFactory } from 'src/factory/recipe-factory'
 import { io } from 'src/socket'
 
@@ -100,8 +102,10 @@ export const createReceita: MutationResolvers['createReceita'] = async ({
 
     io.emit('new-recipe', result)
   } catch (error) {
-    console.error(error)
-    throw new Error(error)
+    const errorMessage = error.message.includes('Unique constraint')
+      ? 'Oops! Já existe um registro com esse slug. Tente um diferente.'
+      : error.message
+    throw new ValidationError(errorMessage)
   }
 
   return result

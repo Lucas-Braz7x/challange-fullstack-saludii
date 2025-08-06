@@ -8,7 +8,7 @@
 ### 📄 Receitas
 
 - [x] Uma receita deve conter obrigatoriamente: título, ingredientes, modo de preparo, tempo de preparo, número de porções e um slug único.
-- [ ] O conteúdo dos campos "ingredientes" e "modo de preparo" deve permitir formatação em markdown (ou HTML via tiptap).
+- [x] O conteúdo dos campos "ingredientes" e "modo de preparo" deve permitir formatação em markdown (ou HTML via tiptap).
 - [x] Cada nova receita deve ser adicionada ao feed em tempo real para todos os usuários conectados.
 - [x] A receita pode estar vinculada a uma ou mais categorias.
 - [x] A receita pode conter uma ou mais tags,
@@ -28,8 +28,8 @@
 
 ### 🔗 Compartilhamento
 
-- [ ] Cada receita deve possuir um link único baseado no seu slug (ex: `/receita/bolo-de-cenoura`).
-- [ ] O link deve ser copiável e levar diretamente à visualização completa da receita.
+- [x] Cada receita deve possuir um link único baseado no seu slug (ex: `/receita/bolo-de-cenoura`).
+- [x] O link deve ser copiável e levar diretamente à visualização completa da receita.
 
 ---
 
@@ -46,14 +46,14 @@
 ### 🎯 Usabilidade e Design
 
 - [x] A interface deve ser clara, com tipografia coerente, espaçamentos adequados e paleta de cores harmônica.
-- [ ] A criação e visualização de receitas deve ser fluida, com transições suaves e feedbacks visuais.
+- [x] A criação e visualização de receitas deve ser fluida, com transições suaves e feedbacks visuais.
 - [x] O formulário de criação de receita deve validar campos obrigatórios de forma amigável e em tempo real.
 - [x] A navegação deve ser intuitiva, com componentes reutilizáveis e consistentes.
 
 ### 🧪 Performance e Qualidade
 
-- [ ] O feed de receitas deve carregar rapidamente e refletir atualizações em tempo real com latência mínima.
+- [x] O feed de receitas deve carregar rapidamente e refletir atualizações em tempo real com latência mínima.
 - [x] A aplicação não deve utilizar o sistema de `cells` do RedwoodJS.
 - [x] As consultas GraphQL devem utilizar `DataLoader` do Prisma para evitar problemas de N+1.
 - [x] O código da aplicação deve seguir os princípios de clean code: modular, legível e com boa separação de responsabilidades.
-- [ ] Os índices no banco devem ser bem definidos, especialmente nos campos utilizados em filtros e buscas.
+- [x] Os índices no banco devem ser bem definidos, especialmente nos campos utilizados em filtros e buscas.

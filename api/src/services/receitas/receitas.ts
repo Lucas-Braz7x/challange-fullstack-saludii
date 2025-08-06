@@ -13,51 +13,58 @@ import { io } from 'src/socket'
 const recipeRepository = recipeFactory()
 
 export const receitas: QueryResolvers['receitas'] = ({ query }) => {
-  return recipeRepository.findMany({
-    orderBy: {
-      createdAt: 'desc',
-    },
-    where: {
-      AND: [
-        {
-          titulo: query?.titulo ? { contains: query?.titulo } : undefined,
-        },
-        {
-          ingredientes: query?.ingredientes
-            ? {
-                contains: query?.ingredientes,
-              }
-            : undefined,
-        },
-        {
-          tags: query?.tags?.length
-            ? {
-                some: {
-                  tag: {
-                    nome: {
-                      in: query?.tags,
+  try {
+    return recipeRepository.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      where: {
+        AND: [
+          {
+            titulo: query?.titulo ? { contains: query?.titulo } : undefined,
+          },
+          {
+            ingredientes: query?.ingredientes
+              ? {
+                  contains: query?.ingredientes,
+                }
+              : undefined,
+          },
+          {
+            tags: query?.tags?.length
+              ? {
+                  some: {
+                    tag: {
+                      nome: {
+                        in: query?.tags,
+                      },
                     },
                   },
-                },
-              }
-            : undefined,
-        },
-        {
-          categorias: query?.categorias?.length
-            ? {
-                some: {
-                  categoria: {
-                    nome: {
-                      in: query?.categorias,
+                }
+              : undefined,
+          },
+          {
+            categorias: query?.categorias?.length
+              ? {
+                  some: {
+                    categoria: {
+                      nome: {
+                        in: query?.categorias,
+                      },
                     },
                   },
-                },
-              }
-            : undefined,
-        },
-      ],
-    },
-  })
+                }
+              : undefined,
+          },
+        ],
+      },
+    })
+  } catch (error) {
+    console.error('Erro ao buscar receitas:', error)
+    throw new ValidationError(
+      error instanceof Error ? error.message : 'Erro desconhecido'
+    )
+  }
 }
 
 export const receita: QueryResolvers['receita'] = ({ id }) => {

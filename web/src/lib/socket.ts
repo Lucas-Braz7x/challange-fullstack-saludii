@@ -4,4 +4,6 @@ import { io } from 'socket.io-client'
 //   path: '/socket.io',
 // })
 
-export const socket = io('http://localhost:5050')
+export const socket = io(
+  import.meta.env.VITE_API_URL || 'http://localhost:5050'
+)

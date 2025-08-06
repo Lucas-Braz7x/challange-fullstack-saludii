@@ -35,9 +35,8 @@ export const CreateRecipeModal = () => {
     }
   )
 
-  const onSave = (input: CreateReceitaInput) => {
-    console.log({ input })
-    createReceita({
+  const onSave = async (input: CreateReceitaInput) => {
+    await createReceita({
       variables: { input },
     })
   }

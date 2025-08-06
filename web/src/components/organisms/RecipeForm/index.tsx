@@ -17,15 +17,9 @@ import { validationSchema } from './utils/validationSchema'
 
 export const RecipeForm = (props: ReceitaFormProps) => {
   const onSubmit = async (data: any) => {
-    const dataInput = {
-      ...data,
-      categorias: data.categorias.map((record) => record.id),
-      tags: data.tags.map((record) => record.id),
-    }
+    console.log({ data })
 
-    console.log({ dataInput })
-
-    await props.onSave({ ...dataInput })
+    await props.onSave({ ...data })
 
     if (props?.handleClose) {
       props.handleClose()

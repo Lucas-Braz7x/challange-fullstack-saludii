@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './styles.scss'
 
 import { Box, Container, Grid } from '@mui/material'
+import { io } from 'socket.io-client'
 import { FindReceitas, FindReceitasVariables, Receita } from 'types/graphql'
 
 import { useQuery } from '@redwoodjs/web'
@@ -11,7 +12,6 @@ import { CardRecipe } from 'src/components/organisms/CardRecipe'
 import { FilterForm } from 'src/components/organisms/FilterForm'
 import { Header } from 'src/components/organisms/Header'
 import { CreateRecipeModal } from 'src/components/organisms/Modal'
-import { socket } from 'src/lib/socket'
 import { LIST_RECIPES_QUERY } from 'src/requests'
 
 export const HomePageTemplate = () => {
@@ -25,15 +25,18 @@ export const HomePageTemplate = () => {
     }
   )
 
+  const socket = io('http://localhost:5050')
+
   useEffect(() => {
     socket.on('new-recipe', (data) => {
+      console.log('ENTROUY no swocket')
       setDataRecipes((prev) => [...prev, data])
 
       updateQuery((prev) => {
         if (!prev) return prev
         return {
           ...prev,
-          receitas: [data, ...prev.receitas],
+          receitas: [...prev.receitas, data],
         }
       })
     })
@@ -41,7 +44,7 @@ export const HomePageTemplate = () => {
     return () => {
       socket.disconnect()
     }
-  }, [])
+  }, [socket, updateQuery])
 
   return (
     <Container className="container">

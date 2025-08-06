@@ -37,10 +37,17 @@ export const schema = gql`
   }
 
   type Query {
+<<<<<<< HEAD
     receitas: [Receita!]! @skipAuth
     receitas(query: SearchReceitaInput): [Receita!]!
     receita(id: String!): Receita @skipAuth
     findBySlug(slug: String!): Receita @skipAuth
+=======
+    receitas: [Receita!]!
+    receitas(query: SearchReceitaInput): [Receita!]!
+    receita(id: String!): Receita
+    findBySlug(slug: String!): Receita
+>>>>>>> 4215c28fd37e77247247d1c334d1f6dfa4b23fb8
   }
 
   input CreateReceitaInput {
@@ -68,8 +75,15 @@ export const schema = gql`
   }
 
   type Mutation {
+<<<<<<< HEAD
     createReceita(input: CreateReceitaInput!): Receita! @skipAuth
     updateReceita(id: String!, input: UpdateReceitaInput!): Receita! @skipAuth
     deleteReceita(id: String!): Receita! @skipAuth
+=======
+    createReceita(input: CreateReceitaInput!): Receita!
+    updateReceita(id: String!, input: UpdateReceitaInput!): Receita!
+
+    deleteReceita(id: String!): Receita!
+>>>>>>> 4215c28fd37e77247247d1c334d1f6dfa4b23fb8
   }
 `

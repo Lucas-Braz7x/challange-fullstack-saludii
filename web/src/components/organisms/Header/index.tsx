@@ -1,16 +1,11 @@
-import { MENU_OPTIONS } from './constants'
+import { Menu } from 'src/components/atoms/Menu'
+
 import './styles.scss'
 
 export const Header = () => {
   return (
     <header className="menu-flex">
-      <div>Receitas++</div>
-
-      <ul className="menu-options">
-        {MENU_OPTIONS.map((record) => (
-          <li key={record.name}>{record.name}</li>
-        ))}
-      </ul>
+      <Menu />
     </header>
   )
 }

@@ -1,18 +1,1 @@
-export const MENU_OPTIONS = [
-  {
-    name: 'Home',
-    link: '',
-  },
-  {
-    name: 'Receita',
-    link: '',
-  },
-  {
-    name: 'Sobre',
-    link: '',
-  },
-  {
-    name: 'Contatos',
-    link: '',
-  },
-]
+export const MENU_OPTIONS = ['Home', 'Receita', 'Sobre', 'Contatos']

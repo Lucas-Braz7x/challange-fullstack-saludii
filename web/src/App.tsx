@@ -8,6 +8,8 @@ import FatalErrorPage from 'src/pages/FatalErrorPage'
 
 import './index.scss'
 import './scaffold.css'
+import { MainContainer } from './components/atoms/MainContainer'
+import { Header } from './components/organisms/Header'
 
 interface AppProps {
   children?: ReactNode
@@ -22,7 +24,10 @@ const App = ({ children }: AppProps) => (
         style={{ display: 'none' }}
         alt=""
       />
-      <RedwoodApolloProvider>{children}</RedwoodApolloProvider>
+      <MainContainer>
+        <Header />
+        <RedwoodApolloProvider>{children}</RedwoodApolloProvider>
+      </MainContainer>
       <Toaster toastOptions={{ className: 'rw-toast', duration: 3000 }} />
     </RedwoodProvider>
   </FatalErrorBoundary>

@@ -5,6 +5,7 @@ import type {
   DeleteReceitaMutationVariables,
   FindReceitas,
   FindReceitasVariables,
+  QueryfindBySlugArgs,
   UpdateReceitaMutation,
   UpdateReceitaMutationVariables,
 } from 'types/graphql'
@@ -61,6 +62,23 @@ export const UPDATE_RECIPE_MUTATION: TypedDocumentNode<
       curtidas
       createdAt
       updatedAt
+    }
+  }
+`
+
+export const FIND_BY_SLUG_RECIPE_QUERY: TypedDocumentNode<QueryfindBySlugArgs> = gql`
+  query findBySlugQuery($slug: String!) {
+    findBySlug(slug: $slug) {
+      id
+      titulo
+      ingredientes
+      modoPreparo
+      tempoPreparo
+      porcoes
+      notaPessoal
+      slug
+      curtidas
+      createdAt
     }
   }
 `

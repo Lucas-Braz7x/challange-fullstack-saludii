@@ -14,6 +14,9 @@ import {
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
+import { navigate } from '@redwoodjs/router'
+import { routes } from '@redwoodjs/router'
+
 import { MENU_OPTIONS } from 'src/components/organisms/Header/constants'
 
 export const Menu = () => {
@@ -79,7 +82,11 @@ export const Menu = () => {
         ) : (
           <Box>
             {MENU_OPTIONS.map((item) => (
-              <Button key={item} color="inherit">
+              <Button
+                key={item}
+                color="inherit"
+                onClick={() => navigate(routes.home())}
+              >
                 {item}
               </Button>
             ))}

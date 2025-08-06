@@ -1,0 +1,25 @@
+$card-background: #fef7ea;
+$card-indices: #7c6f64;
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.card-body {
+  display: flex;
+  justify-content: start;
+  background: $card-background;
+  margin-top: 40px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+
+
+  &>Button,
+  &>div>Button {
+    color: $card-indices !important;
+
+  }
+}

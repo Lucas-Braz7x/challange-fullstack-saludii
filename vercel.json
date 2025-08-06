@@ -1,14 +1,8 @@
 {
   "functions": {
-    "api/graphql": {
-      "memory": 512,
+    "api/src/functions/graphql.*": {
+      "runtime": "@vercel/redwood@2.0.5",
       "maxDuration": 10
     }
-  },
-  "rewrites": [
-    {
-      "source": "/graphql",
-      "destination": "/api/graphql"
-    }
-  ]
+  }
 }

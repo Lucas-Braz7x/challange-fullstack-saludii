@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react'
 
 import './styles.scss'
 
-import { Box, Container, Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import { io } from 'socket.io-client'
 import { FindReceitas, FindReceitasVariables, Receita } from 'types/graphql'
 
 import { useQuery } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
+import { MainContainer } from 'src/components/atoms/MainContainer'
 import { CardRecipe } from 'src/components/organisms/CardRecipe'
 import { CardSkeleton } from 'src/components/organisms/CardRecipe/components/CardSkeleton'
 import { FilterForm } from 'src/components/organisms/FilterForm'
@@ -45,7 +46,7 @@ export const HomePageTemplate = () => {
   }, [socket, updateQuery])
 
   return (
-    <Container className="container">
+    <MainContainer>
       <Header />
       <div className="img-home">Explore receitas deliciosas</div>
 
@@ -76,6 +77,6 @@ export const HomePageTemplate = () => {
               ))}
         </Grid>
       </Box>
-    </Container>
+    </MainContainer>
   )
 }

@@ -41,19 +41,19 @@
 - [x] O banco de dados utilizado deve ser SQLite.
 - [x] A interface deve utilizar o Material UI para componentes visuais.
 - [x] A comunicação em tempo real deve ser implementada usando Socket.IO ou Server-Sent Events (SSE).
-- [ ] A aplicação deve permitir visualização responsiva em desktop e dispositivos móveis.
+- [x] A aplicação deve permitir visualização responsiva em desktop e dispositivos móveis.
 
 ### 🎯 Usabilidade e Design
 
-- [ ] A interface deve ser clara, com tipografia coerente, espaçamentos adequados e paleta de cores harmônica.
+- [x] A interface deve ser clara, com tipografia coerente, espaçamentos adequados e paleta de cores harmônica.
 - [ ] A criação e visualização de receitas deve ser fluida, com transições suaves e feedbacks visuais.
-- [ ] O formulário de criação de receita deve validar campos obrigatórios de forma amigável e em tempo real.
-- [ ] A navegação deve ser intuitiva, com componentes reutilizáveis e consistentes.
+- [x] O formulário de criação de receita deve validar campos obrigatórios de forma amigável e em tempo real.
+- [x] A navegação deve ser intuitiva, com componentes reutilizáveis e consistentes.
 
 ### 🧪 Performance e Qualidade
 
 - [ ] O feed de receitas deve carregar rapidamente e refletir atualizações em tempo real com latência mínima.
-- [ ] A aplicação não deve utilizar o sistema de `cells` do RedwoodJS.
+- [x] A aplicação não deve utilizar o sistema de `cells` do RedwoodJS.
 - [x] As consultas GraphQL devem utilizar `DataLoader` do Prisma para evitar problemas de N+1.
-- [ ] O código da aplicação deve seguir os princípios de clean code: modular, legível e com boa separação de responsabilidades.
+- [x] O código da aplicação deve seguir os princípios de clean code: modular, legível e com boa separação de responsabilidades.
 - [ ] Os índices no banco devem ser bem definidos, especialmente nos campos utilizados em filtros e buscas.

@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from 'react'
-
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import FavoriteIcon from '@mui/icons-material/Favorite'
@@ -16,67 +14,29 @@ import Typography from '@mui/material/Typography'
 import dayjs from 'dayjs'
 import { Receita } from 'types/graphql'
 
-import { Link } from '@redwoodjs/router'
-import { toast } from '@redwoodjs/web/toast'
+import { Link, routes } from '@redwoodjs/router'
 
+import { useLikeRecipe } from 'src/hooks/useLikeRecipe'
 import { socket } from 'src/lib/socket'
-
-import { BOUNCE_ANIMATION } from './constants'
 
 import 'dayjs/locale/pt-br'
 dayjs.locale('pt-br')
 
 import './styles.scss'
 
+import { BOUNCE_ANIMATION } from './constants'
+import { copyLink } from './utils/copyLink'
+
 interface CardRecipeProps {
   record: Receita
 }
 
 export const CardRecipe = ({ record }: CardRecipeProps) => {
-  const [curtidas, setCurtidas] = useState(record.curtidas)
-  const [animate, setAnimate] = useState(false)
-
-  const handleLike = () => {
-    socket.emit('like', { receitaId: record.id })
-    setAnimate(true)
-    setTimeout(() => setAnimate(false), 300)
-  }
-
-  const recipeId = record.id
-
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>
-    const atualizarCurtidas = (record: any) => {
-      if (record.id === recipeId) {
-        setCurtidas(record.curtidas)
-        setAnimate(true)
-        timeoutId = setTimeout(() => setAnimate(false), 300)
-      }
-    }
-
-    socket.on('receita-curtida', atualizarCurtidas)
-
-    return () => {
-      socket.off('receita-curtida', atualizarCurtidas)
-      clearTimeout(timeoutId)
-    }
-  }, [recipeId])
-
-  const copyLink = (slug: string) => {
-    const url = `${window.location.origin}/receitas/${slug}`
-    navigator.clipboard
-      .writeText(url)
-      .then(() => {})
-      .catch((err) => {
-        console.error('Erro ao copiar:', err)
-      })
-    toast.success('Link copiado', {
-      position: 'bottom-right',
-      style: {
-        zIndex: 10000,
-      },
-    })
-  }
+  const { curtidas, animate, handleLike } = useLikeRecipe(
+    socket,
+    record?.id,
+    record?.curtidas
+  )
 
   const isNew = dayjs().diff(record.createdAt, 'h') < 1
 
@@ -84,7 +44,11 @@ export const CardRecipe = ({ record }: CardRecipeProps) => {
     <Badge color="success" badgeContent={isNew ? 'Novo' : 0}>
       <Card className="card-container">
         <CardActionArea className="card-bg">
-          <CardContent>
+          <CardContent
+            sx={{
+              height: '128px',
+            }}
+          >
             <Typography
               gutterBottom
               variant="h5"
@@ -138,20 +102,19 @@ export const CardRecipe = ({ record }: CardRecipeProps) => {
           >
             ({curtidas})
           </Button>
+          <Link
+            to={routes.receita({ slug: record.slug })}
+            title={'View receita ' + record.id}
+            className="rw-button rw-button-small "
+          >
+            <VisibilityIcon fontSize="small" />
+          </Link>
           <Button
             size="small"
             color="primary"
             onClick={() => copyLink(record.slug)}
             startIcon={<ContentCopyIcon />}
           />
-
-          <Link
-            to={'/'}
-            title={'Edit receita ' + record.id}
-            className="rw-button rw-button-small "
-          >
-            <VisibilityIcon fontSize="small" />
-          </Link>
         </CardActions>
       </Card>
     </Badge>

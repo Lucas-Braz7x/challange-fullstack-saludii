@@ -6,8 +6,8 @@ export const schema = gql`
   }
 
   type Query {
-    tags: [Tag!]! @requireAuth
-    tag(id: String!): Tag @requireAuth
+    tags: [Tag!]!
+    tag(id: String!): Tag
   }
 
   input CreateTagInput {
@@ -19,8 +19,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createTag(input: CreateTagInput!): Tag! @requireAuth
-    updateTag(id: String!, input: UpdateTagInput!): Tag! @requireAuth
-    deleteTag(id: String!): Tag! @requireAuth
+    createTag(input: CreateTagInput!): Tag!
+    updateTag(id: String!, input: UpdateTagInput!): Tag!
+    deleteTag(id: String!): Tag!
   }
 `

@@ -40,6 +40,7 @@ export const schema = gql`
     receitas: [Receita!]! @requireAuth
     receitas(query: SearchReceitaInput): [Receita!]!
     receita(id: String!): Receita @requireAuth
+    findBySlug(slug: String!): Receita @requireAuth
   }
 
   input CreateReceitaInput {

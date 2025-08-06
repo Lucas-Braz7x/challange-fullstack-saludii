@@ -66,6 +66,12 @@ export const receita: QueryResolvers['receita'] = ({ id }) => {
   })
 }
 
+export const findBySlug: QueryResolvers['findBySlug'] = ({ slug }) => {
+  return recipeRepository.findUnique({
+    where: { slug },
+  })
+}
+
 export const createReceita: MutationResolvers['createReceita'] = async ({
   input,
 }) => {

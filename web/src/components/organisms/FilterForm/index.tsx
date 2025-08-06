@@ -128,6 +128,7 @@ export const FilterForm = ({
                 variant="contained"
                 color="primary"
                 endIcon={<FilterAltIcon />}
+                style={{ background: '#5a7ca3' }}
               >
                 Pesquisar
               </Button>

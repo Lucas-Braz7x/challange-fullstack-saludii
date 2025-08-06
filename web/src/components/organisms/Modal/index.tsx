@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import AddIcon from '@mui/icons-material/Add'
 import { Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -43,7 +44,16 @@ export const CreateRecipeModal = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button
+        style={{
+          background: '#38a169',
+        }}
+        onClick={handleOpen}
+        className="rw-button rw-button-green"
+        endIcon={<AddIcon />}
+      >
+        Criar receita
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

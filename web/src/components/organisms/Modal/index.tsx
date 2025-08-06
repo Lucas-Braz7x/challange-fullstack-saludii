@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import AddIcon from '@mui/icons-material/Add'
-import { Typography } from '@mui/material'
+import { Backdrop, Fade, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
@@ -25,12 +25,13 @@ export const CreateRecipeModal = () => {
     CREATE_RECIPE_MUTATION,
     {
       onCompleted: () => {
-        toast.success('Receita created')
+        toast.success('Receita criada com sucesso ')
+        handleClose()
         //navigate(routes.receitas())
       },
       onError: (error) => {
         console.log(error)
-        toast.error('TESTE')
+        toast.error(error.message)
       },
     }
   )
@@ -56,20 +57,33 @@ export const CreateRecipeModal = () => {
       <Modal
         open={open}
         onClose={handleClose}
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2" mb={2}>
-            Criar uma nova receita
-          </Typography>
-          <RecipeForm
-            onSave={onSave}
-            loading={loading}
-            error={error}
-            handleClose={handleClose}
-          />
-        </Box>
+        <Fade in={open} timeout={500}>
+          <Box sx={style}>
+            <Typography
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+              mb={2}
+            >
+              Criar uma nova receita
+            </Typography>
+            <RecipeForm
+              onSave={onSave}
+              loading={loading}
+              error={error}
+              handleClose={handleClose}
+            />
+          </Box>
+        </Fade>
       </Modal>
     </div>
   )

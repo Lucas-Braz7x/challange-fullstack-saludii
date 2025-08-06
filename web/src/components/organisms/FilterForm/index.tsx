@@ -10,6 +10,8 @@ import Grid from '@mui/material/Grid'
 import { Formik, Form } from 'formik'
 import type { Receita } from 'types/graphql'
 
+import { toast } from '@redwoodjs/web/toast'
+
 import { AutocompleteInput } from 'src/components/atoms/AutoComplete'
 import type { FilterFormProps } from 'src/dto/organisms/FilterForm'
 import { LIST_RECIPES_QUERY } from 'src/requests'
@@ -25,6 +27,12 @@ export const FilterForm = ({
 
   const [listRecipes] = useLazyQuery(LIST_RECIPES_QUERY, {
     onCompleted({ receitas }) {
+      toast.dismiss()
+      if (receitas?.length) {
+        toast.success('Receitas encontradas')
+      } else {
+        toast('Nenhuma receita encontrada')
+      }
       setDataRecipes(receitas as Receita[])
       updateQuery((prev) => {
         if (!prev) return prev
@@ -41,6 +49,7 @@ export const FilterForm = ({
       tags: string[]
     }
   ) => {
+    toast.loading('Pesquisando...')
     await listRecipes({
       variables: {
         query: {

@@ -22,7 +22,6 @@ import { toast } from '@redwoodjs/web/toast'
 import { socket } from 'src/lib/socket'
 
 import { BOUNCE_ANIMATION } from './constants'
-//import { routes } from '@redwoodjs/router'
 
 import 'dayjs/locale/pt-br'
 dayjs.locale('pt-br')
@@ -46,9 +45,12 @@ export const CardRecipe = ({ record }: CardRecipeProps) => {
   const recipeId = record.id
 
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>
     const atualizarCurtidas = (record: any) => {
       if (record.id === recipeId) {
         setCurtidas(record.curtidas)
+        setAnimate(true)
+        timeoutId = setTimeout(() => setAnimate(false), 300)
       }
     }
 
@@ -56,6 +58,7 @@ export const CardRecipe = ({ record }: CardRecipeProps) => {
 
     return () => {
       socket.off('receita-curtida', atualizarCurtidas)
+      clearTimeout(timeoutId)
     }
   }, [recipeId])
 

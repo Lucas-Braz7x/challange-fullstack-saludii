@@ -20,25 +20,15 @@ export const RecipeForm = (props: ReceitaFormProps) => {
     console.log({ data })
 
     await props.onSave({ ...data })
-
-    if (props?.handleClose) {
-      props.handleClose()
-    }
   }
 
   const { loading, data } = useQuery(LIST_CATEGORIES_QUERY, {
-    onCompleted: () => {
-      toast.success('Receita listada')
-    },
     onError: (error) => {
       toast.error(error.message)
     },
   })
 
   const { data: dataTags } = useQuery(LIST_TAGS_QUERY, {
-    onCompleted: () => {
-      toast.success('Receita listada')
-    },
     onError: (error) => {
       toast.error(error.message)
     },

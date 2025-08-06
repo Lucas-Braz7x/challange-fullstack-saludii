@@ -32,7 +32,7 @@ export const HomePageTemplate = () => {
     },
   })
 
-  const socket = io('http://localhost:5050')
+  const socket = io(import.meta.env.VITE_API_URL || 'http://localhost:5050')
 
   useEffect(() => {
     socket.on('new-recipe', (data) => {

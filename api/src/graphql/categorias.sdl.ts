@@ -6,8 +6,8 @@ export const schema = gql`
   }
 
   type Query {
-    categorias: [Categoria!]! @requireAuth
-    categoria(id: String!): Categoria @requireAuth
+    categorias: [Categoria!]!
+    categoria(id: String!): Categoria
   }
 
   input CreateCategoriaInput {
@@ -19,9 +19,9 @@ export const schema = gql`
   }
 
   type Mutation {
-    createCategoria(input: CreateCategoriaInput!): Categoria! @requireAuth
+    createCategoria(input: CreateCategoriaInput!): Categoria! @skipAuth
     updateCategoria(id: String!, input: UpdateCategoriaInput!): Categoria!
-      @requireAuth
-    deleteCategoria(id: String!): Categoria! @requireAuth
+      @skipAuth
+    deleteCategoria(id: String!): Categoria! @skipAuth
   }
 `

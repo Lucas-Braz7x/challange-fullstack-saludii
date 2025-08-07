@@ -2,6 +2,10 @@
 
 Repositório do desafio fullstack para a aplicação Saludii, desenvolvida com RedwoodJS, focada em escalabilidade, organização e boas práticas de desenvolvimento.
 
+OBS: Apenas o socket que não foi possível rodar junto devido as limitações do Render e do sqlite
+
+Dê uma olhadinha: [Site](https://challange-fullstack-saludii.onrender.com/)
+
 ---
 
 ## 🚀 Tecnologias utilizadas
